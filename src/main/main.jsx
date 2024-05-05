@@ -1,7 +1,11 @@
 import './main.css'
+import MainHeader from './mainHeader/mainHeader'
 
-export default function Main({Children}){
+export default function Main({children}){
     return(
-        <div className='main_container'>{Children}</div>
+        <div className='main_container'>
+            <MainHeader adminName = {'yaotone'}></MainHeader>
+            {children}
+        </div>
     )
 }
