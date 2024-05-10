@@ -1,0 +1,35 @@
+.fieldInput_name{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 24px;
+}
+
+.fieldInput_input{
+    width: calc(100%-32px);
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+.fieldInput_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fieldInput_header_name{
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.fieldInput_header_close{
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}

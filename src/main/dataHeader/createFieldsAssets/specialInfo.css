@@ -1,0 +1,87 @@
+.specialInfo_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.specialInfo_gender_header{
+    font-size: 24px;
+}
+
+.specialInfo_birth_header{
+    font-size: 24px;
+}
+
+.specialInfo_gender{
+    width: 20%;
+}
+
+.specialInfo_birth{
+    width: 40%;
+}
+
+.specialInfo_gender_input{
+    width: 100%;
+}
+
+.specialInfo_birth_input{
+    width: 188px;
+    padding: 0px;
+    outline: 0px;
+    border: 0px;
+    border: 1px solid black;
+    margin-top: 16px;
+    height: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.specialInfo_gender_input_container{
+    position: relative;
+    width: 98px;
+    border: 1px solid black;
+    margin-top: 16px;
+    height: 24px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gender_dropdown_choosed{
+    margin-left: 43px;
+}
+
+.gender_dropdown_icon{
+    height: 16px;
+    width: 16px;
+    background-size: cover;
+    margin-left: 20px;
+    transform: rotate(90deg);
+    transition: 0.5s;
+}
+
+.genders_to_choose{
+    width: 98px;
+    height: fit-content;
+    position: absolute;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.choose_gender{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.choose_gender:hover{
+    background-color: rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+}
