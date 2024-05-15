@@ -1,7 +1,7 @@
 .main_header{
     width: 100%;
     height: 60px;
-    background-color: rgb(100, 100, 100);
+    background-color: #79a8f995;
     margin-bottom: 40px;
     display: flex;
     justify-content: end;
@@ -31,8 +31,10 @@
     margin-right: 16px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .header_exit:hover{
-    background-color: rgba(255, 255, 255, 0.204);
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
 }

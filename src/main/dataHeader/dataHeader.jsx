@@ -5,6 +5,7 @@ import FieldInput from './createFieldsAssets/fieldInput'
 import Input from './createFieldsAssets/input'
 import SpecialInfo from './createFieldsAssets/specialInfo'
 import SubmitCreate from './createFieldsAssets/submitCreate'
+import PhoneInput from './createFieldsAssets/phoneInput'
 
 export default function DataHeader({page, setPage, searchQuery, 
     setSearchQuery, activeButton}){
@@ -12,6 +13,7 @@ export default function DataHeader({page, setPage, searchQuery,
     const inputOneRef = useRef(null);
     const inputTwoRef = useRef(null);
     const inputThreeRef = useRef(null);
+    const [phone, setPhone] = useState('')
 
     const [inputGender, setInputGender] = useState('M')
     const [inputDate, setInputDate] = useState('')
@@ -25,6 +27,7 @@ export default function DataHeader({page, setPage, searchQuery,
         inputs={[<Input key={1} ref={inputOneRef} fieldName={'Фамилия'}></Input>,
             <Input key={2} ref={inputTwoRef} fieldName={'Имя'}></Input>,
             <Input key={3} ref={inputThreeRef} fieldName={'Отчество'}></Input>,
+            <PhoneInput setNum = {setPhone}></PhoneInput>,
             <SpecialInfo gender={inputGender} setGender={setInputGender} date={inputDate} setDate={setInputDate}/>
         ]}
     ></FieldInput>)
@@ -44,6 +47,7 @@ export default function DataHeader({page, setPage, searchQuery,
         inputOneRef.current.value = ''
         inputTwoRef.current.value = ''
         inputThreeRef.current.value = ''
+        setPhone('')
 
         setInputGender('M')
         setInputDate(`${new Date().getFullYear()}-${new Date().getMonth() < 10 ? '0' : '' }${new Date().getMonth()}-${new Date().getDate() < 10 ? '0' : ''}${new Date().getDate()}`)
@@ -65,6 +69,7 @@ export default function DataHeader({page, setPage, searchQuery,
                 inputs={[<Input key={1} ref={inputOneRef} fieldName={'Фамилия'}></Input>,
                 <Input key={2} ref={inputTwoRef} fieldName={'Имя'} ></Input>,
                 <Input key={3} ref={inputThreeRef} fieldName={'Отчество'}></Input>,
+                <PhoneInput setNum = {setPhone}></PhoneInput>,
                 <SpecialInfo gender={inputGender} setGender={setInputGender} date={inputDate} setDate={setInputDate}/>
             ]}
             ></FieldInput>)
@@ -75,19 +80,21 @@ export default function DataHeader({page, setPage, searchQuery,
         else if(activeButton === 3){
 
         }
-    },[activeButton, isCreateFieldActive, inputGender, inputDate])
+    },[activeButton, phone, isCreateFieldActive, inputGender, inputDate])
 
     return(
         <>
         <div className='dataHeader_container'>
             <div className='data_change_page_container'>
                 <div className='data_change_page_arrow' id='left_arrow' 
-                style={{backgroundImage: `url(${arrow})`}}
-                onClick={prevPage}></div>
-                <div className='data_change_page_current'>{page}</div>
+                    onClick={prevPage}>
+                    <img src={arrow} alt="left-arrow" />
+                </div>
+                {/* <div className='data_change_page_current'>{page}</div> */}
                 <div className='data_change_page_arrow' id='right_arrow' 
-                style={{backgroundImage: `url(${arrow})`}}
-                onClick={nextPage}></div>
+                    onClick={nextPage}>
+                    <img src={arrow} alt="right-arrow" />
+                </div>
             </div>
 
             <div className='dataHeader_search_container'>

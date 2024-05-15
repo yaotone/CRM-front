@@ -1,0 +1,39 @@
+.PhoneInput_header{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 24px;
+}
+
+.PhoneInput_container{
+    width: 100%;
+    height: fit-content;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.PhoneInput_plus{
+    font-size: 28px;
+}
+
+.PhoneInput_number_input{
+    font-size: 28px;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    outline: 1px solid black;
+}
+
+.PhoneInput_number_input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#spacing{
+    margin-right: 10px;
+}

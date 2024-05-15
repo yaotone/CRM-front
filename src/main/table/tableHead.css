@@ -1,0 +1,16 @@
+.tableHead_cell{
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    padding: 10px 20px;
+	background: #9bbdf99e;
+    width: fit-content;
+    text-wrap: nowrap;
+}
+
+.tableHead_cell:first-child{
+    border-radius: 8px 0 0 8px;
+}
+.tableHead_cell:last-child{
+    border-radius: 0 8px 8px 0;
+}

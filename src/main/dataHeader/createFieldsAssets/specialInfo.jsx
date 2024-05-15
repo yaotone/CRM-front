@@ -43,7 +43,7 @@ export default function SpecialInfo({date, gender, setDate, setGender}){
                 </div>
             </div>
             <div className='specialInfo_birth'>
-                <div className='specialInfo_birth_header'>Возраст</div>
+                <div className='specialInfo_birth_header'>Дата рождения</div>
                 <input type='date' className='specialInfo_birth_input' value={date} onChange={handleDateChange}></input>
             </div>
         </div>
