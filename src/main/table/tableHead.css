@@ -3,14 +3,15 @@
     text-align: left;
     border: none;
     padding: 10px 20px;
-	background: #9bbdf99e;
+	background: #ffffff;
     width: fit-content;
     text-wrap: nowrap;
+    border-bottom: 2px solid #d1d8e275;
 }
 
 .tableHead_cell:first-child{
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px 0 0 0;
 }
 .tableHead_cell:last-child{
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 0 0;
 }

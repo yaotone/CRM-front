@@ -1,5 +1,6 @@
 import './dataHeader.css'
 import arrow from '../../icons/arrow.svg'
+import plus from '../../icons/plus.png'
 import { useEffect, useRef, useState } from 'react'
 import FieldInput from './createFieldsAssets/fieldInput'
 import Input from './createFieldsAssets/input'
@@ -100,12 +101,13 @@ export default function DataHeader({page, setPage, searchQuery,
             <div className='dataHeader_search_container'>
                 <input type='text' className='dataHeader_search_input'
                 value={searchQuery} onInput={(ev)=>handleInput(ev)}
-                ></input>
-                <div className='dataHeader_search_button' onClick={(el)=>handleSubmit(el)}>Поиск</div>
+                placeholder='Поиск...'></input>
+                {/* <div className='dataHeader_search_button' onClick={(el)=>handleSubmit(el)}>Поиск!</div> */}
             </div>
 
             <div className='dataHeader_create_button' onClick={onCreateClick}>
-                СОЗДАТЬ
+                <img src={plus} alt="plus" />
+                <div>Добавить</div>
             </div>
         </div>
         <div className={isCreateFieldActive ? 'dataHeader_create_field_background' : 'hide'} onClick={closeCreateField}>

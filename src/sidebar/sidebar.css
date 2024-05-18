@@ -1,10 +1,12 @@
 .sidebar_container{
     height: 100dvh;
-    width: 300px;
-    background-color: #587bb680;
+    width: 250px;
+    /* background-color: #587bb680; */
+    background-color: #435fe6;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    color: white;
 }
 
 .sidebar_company_name{

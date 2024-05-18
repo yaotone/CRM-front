@@ -28,6 +28,10 @@
     outline: 1px solid black;
 }
 
+.PhoneInput_number_input:focus{
+    outline: 1px solid #1b3cdf;
+}
+
 .PhoneInput_number_input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;

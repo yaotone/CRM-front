@@ -19,7 +19,8 @@
     background-size: cover;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #9bbdf989;
+    /* background-color: #9bbdf989; */
+    background-color: #edf2f6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,12 +28,12 @@
 }
 
 .data_change_page_arrow img{
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .data_change_page_arrow:hover{
-    background-color: #9bbdf9c0;
+    background-color: #dfe4e9;
     transition: 0.3s;
 }
 
@@ -60,22 +61,29 @@
 .dataHeader_search_input{
     outline: none;
     border: none;
-    width: 160px;
+    width: 240px;
     height: 32px;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 8px;
     padding-right: 8px;
     transition: 0.3s;
-    outline: 1px solid #4c89f3c8;
+    /* outline: 1px solid #4c89f3c8; */
+    outline: 1px solid #d1d8e2;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius: 8px 0 0 8px;
+    border-radius:8px;
+}
+
+.dataHeader_search_input::placeholder{
+    color: rgba(128, 128, 128, 0.750);
 }
 
 .dataHeader_search_button{
     height: 34px;
-    width: 56px;
-    background-color: #4c89f3c8;
+    width: 60px;
+    /* background-color: #4c89f3c8; */
+    background-color: #d1d8e2;
+    color: white;
     transition: 0.3s;
     display: flex;
     justify-content: center;
@@ -86,11 +94,11 @@
 }
 
 .dataHeader_search_button:hover{
-    background-color: #4c89f3;
+    background-color: #1b3cdf;
     transition: 0.3s;
 }
 
-.dataHeader_create_button{
+/* .dataHeader_create_button{
     width: 160px;
     height: 34px;
     margin-left: auto;
@@ -104,10 +112,39 @@
     cursor: pointer;
     transition: 0.3s;
     border-radius: 20px;
+} */
+.dataHeader_create_button{
+    width: fit-content;
+    height: 34px;
+    margin-left: auto;
+    margin-right: 0px;
+    /* background-color: #4c89f3c8; */
+    background-color: #425fe4;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.dataHeader_create_button img{
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+.dataHeader_create_button div{
+    margin-bottom: 2px;
+    color: white;
 }
 
 .dataHeader_create_button:hover{
-    background-color: #4c89f3;
+    /* background-color: #4c89f3; */
+    background-color: #1b3cdf;
     transition: 0.3s;
 }
 
@@ -132,5 +169,5 @@
     padding: 24px;
     height: fit-content;
     border-radius: 15px;
-    background-color: white;
+    background-color:#f4f4f4;
 }

@@ -6,14 +6,18 @@ import edit from '../../icons/edit-line.png'
 import check from '../../icons/check.svg'
 import cross from '../../icons/white-cross.svg'
 
-function TableMain({infoRow, indexes, colors}){
+function TableMain({infoRow, indexes, colors, notChangeable, rowIndex}){
     let colorIndex = -1;
     let info =[]
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isDeleteOptionsShown, setIsDeleteOptionsShown] = useState(false)
     const [isDeleted, setIsDeleted] = useState(false)
+    const [arrToChange, setArrToChange] = useState([])
+
     const menuRef = useRef(null)
+    const tableRow = useRef(null)
+    const lastCell = useRef(null)
 
     for (let key in infoRow){
         info.push(infoRow[key])
@@ -24,7 +28,14 @@ function TableMain({infoRow, indexes, colors}){
     }
 
     function handleChange(){
+        let index = 0
 
+        while(tableRow.current.cells[index] !== lastCell.current){
+                !notChangeable.includes(index) && 
+                setArrToChange([...arrToChange, tableRow.current.cells[index].textContent])
+
+                index = index + 1
+        }
     }
 
     function handleDelete(){
@@ -50,7 +61,8 @@ function TableMain({infoRow, indexes, colors}){
 
     return(
         <>
-            { !isDeleted && <tr className='tableMain_row'> 
+            { !isDeleted && <tr ref={tableRow} className='tableMain_row'> 
+                <td className='tableMain_cell' style={{textAlign: 'center'}}>{rowIndex+1}</td>
                 {info.map((item, index)=>{
                     if(indexes?.includes(index)){ 
                         colorIndex += 1
@@ -60,7 +72,7 @@ function TableMain({infoRow, indexes, colors}){
                     }
                 )
             }
-            <td className='tableMain_cell'>
+            <td className='tableMain_cell' ref={lastCell}>
                 <div className='table_action_wrapper'>
                     <img src={menu} alt="table-action" onClick={handleMenuOpen} className='table_action_icon'/>
                     <div className={isMenuOpen ? 'popup_menu' : 'closed_menu'} ref={menuRef}>
@@ -82,6 +94,8 @@ function TableMain({infoRow, indexes, colors}){
                 </div>
             </td>
             </tr>}
+
+            
         </>
     )
 }

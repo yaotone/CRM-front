@@ -1,11 +1,15 @@
 .main_header{
-    width: 100%;
+    margin-top: 10px;
+    width: 97.5%;
     height: 60px;
-    background-color: #79a8f995;
+    /* background-color: #79a8f995; */
+    background-color: white;
+    border-radius: 0 4px 4px 0;
     margin-bottom: 40px;
     display: flex;
     justify-content: end;
     align-items: center;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.095);
 }
 
 .header_admin_img{
@@ -21,20 +25,28 @@
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 3.5px;
+    margin-right: 14px;
 }
 
 .header_exit{
+    margin-left: 2px;
     width: 32px;
     height: 32px;
     background-size: cover;
-    margin-left: 16px;
     margin-right: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
+.header_vertical{
+    height: 32px;
+    width: 2px;
+    background-color: #d1d8e2c8;
+    border-radius: 5px;
+}
+
 .header_exit:hover{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.073);
     transition: 0.3s;
 }
