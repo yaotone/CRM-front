@@ -7,3 +7,7 @@
 .fieldInput_container:nth-child(1){
     margin-top: 0px;
 }
+
+.fieldInput_header{
+    border-bottom: 1px solid gray;
+}

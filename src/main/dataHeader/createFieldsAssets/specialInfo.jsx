@@ -2,7 +2,7 @@ import './specialInfo.css'
 import arrow from '../../../icons/arrow.svg'
 import { useState, useRef, useEffect } from 'react'
 
-export default function SpecialInfo({date, gender, setDate, setGender}){
+export default function SpecialInfo({date, gender, setDate, setGender, dateToChage, genderToChange}){
 
     const dropdown = useRef(null)
 
@@ -22,8 +22,10 @@ export default function SpecialInfo({date, gender, setDate, setGender}){
     }
 
     useEffect(()=>{
-        setDate(`${new Date().getFullYear()}-${(new Date().getMonth() < 10) ? '0' : '' }${new Date().getMonth()}-${(new Date().getDate() < 10) ? '0' : ''}${new Date().getDate()}`)
+        genderToChange && setGender(genderToChange)
+        dateToChage ? setDate(dateToChage) : setDate(`${new Date().getFullYear()}-${(new Date().getMonth() < 10) ? '0' : '' }${new Date().getMonth()}-${(new Date().getDate() < 10) ? '0' : ''}${new Date().getDate()}`)
     },[])
+
 
     return(
         <div className='specialInfo_container'>

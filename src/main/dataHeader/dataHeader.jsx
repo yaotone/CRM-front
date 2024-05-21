@@ -113,7 +113,7 @@ export default function DataHeader({page, setPage, searchQuery,
         <div className={isCreateFieldActive ? 'dataHeader_create_field_background' : 'hide'} onClick={closeCreateField}>
             <div className='dataHeader_create_field' onClick={(ev)=>ev.stopPropagation()}>
                 {fields}
-                <SubmitCreate onClick={handleSubmit}></SubmitCreate>
+                <SubmitCreate onClick={handleSubmit} text={'СОЗДАТЬ'}></SubmitCreate>
             </div>
         </div>
         </>

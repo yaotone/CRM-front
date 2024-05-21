@@ -1,13 +1,14 @@
 import DataHeader from '../dataHeader/dataHeader'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './usersPage.css'
 import TableHead from '../table/tableHead';
 import TableMain from '../table/tableMain';
 
 export default function UsersPage({activeButton}){
+    console.log(activeButton)
 
-    const [info, setInfo] = useState([
-        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '+ 8 123 456 78 90', gender: 'M', birth: '12-02-2003'},
+    const [info] = useState([
+        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '+ 8 123 456 78 90', gender: 'M', birth: '2003-02-12'},
         {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
         {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '18928989191', gender: 'M', birth: '12-02-2003'},
         {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
@@ -17,6 +18,33 @@ export default function UsersPage({activeButton}){
         {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
     ]
     );
+
+    const tables = [
+        <>
+            <TableHead columns={['id', 'Имя', 'Фамилия', 
+                        'Отчество', 'Время создания', 'Номер телефона', 'Пол', 'Дата рождения']}></TableHead>
+            <tbody>
+                {info.map((item, index)=>{
+                    return <TableMain infoRow={item} indexes={[0,4]} 
+                    notChangeable={[0,4]} colors={['gray','gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                })}
+            </tbody>
+        </>,
+        <>
+            <TableHead columns={['id', 'Имя', 'Фамилия', 
+                        'Отчество', 'Специальность', 'Отпуск']}></TableHead>
+            <tbody>
+                {info.map((item, index)=>{
+                    return <TableMain infoRow={item} indexes={[0,4]} 
+                    notChangeable={[0,4]} colors={['gray','gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                })}
+            </tbody>
+        </>
+    ]
+
+    useEffect(()=>{
+
+    }, [activeButton])
 
     const [currentPage, setCurrentPage] = useState(1)
     const [searchQuery, setSearchQuery] = useState('')
@@ -28,14 +56,7 @@ export default function UsersPage({activeButton}){
             activeButton={activeButton}></DataHeader>
             <div className='usersPage_main'>
                 <table className='data_table_container'>
-                    <TableHead columns={['id', 'Имя', 'Фамилия', 
-                    'Отчество', 'Время создания', 'Номер телефона', 'Пол', 'Дата рождения']}></TableHead>
-                    <tbody>
-                        {info.map((item, index)=>{
-                            return <TableMain infoRow={item} indexes={[0,4]} 
-                            notChangeable={[0,4]} colors={['gray','gray']} rowIndex={index}></TableMain>
-                        })}
-                    </tbody>
+                    {tables[activeButton-1]}
                 </table>
             </div>
         </div>

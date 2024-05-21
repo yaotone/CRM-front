@@ -3,12 +3,14 @@ import './input.css'
 
 // {fieldName, value, setValue}
 
-const Input = memo(React.forwardRef(function Input({fieldName}, ref){
+const Input = memo(React.forwardRef(function Input({fieldName, inputToChange}, 
+    ref){
 
     return(
         <>
-        <div className='fieldInput_name'>{fieldName}</div>
-        <input className='fieldInput_input' ref={ref}></input>
+            <div className='fieldInput_name'>{fieldName}</div>
+            {inputToChange ? <input className='fieldInput_input' ref={ref} defaultValue={inputToChange}></input> :
+            <input className='fieldInput_input' ref={ref}></input>}
         </>
     )
 }))

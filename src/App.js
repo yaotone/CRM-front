@@ -6,22 +6,12 @@ import UsersPage from './main/usersPage/usersPage';
 
 function App() {
   
-  const [currMainPage, setCurrMainPage] = useState(<UsersPage activeButton={1}></UsersPage>)
   const [activeButton, setActiveButton] = useState(1)
-
-  useEffect(()=>{
-    if(activeButton === 1){
-      setCurrMainPage(<UsersPage activeButton={activeButton}></UsersPage>)
-    }
-    else{
-      setCurrMainPage(<></>)
-    }
-  }, [activeButton])
 
   return (
     <div className='main_page_container'>
       <Sidebar active={activeButton} setActive={setActiveButton}></Sidebar>
-      <Main>{currMainPage}</Main>
+      <Main>{<UsersPage activeButton={activeButton}></UsersPage>}</Main>
     </div>
   );
 }

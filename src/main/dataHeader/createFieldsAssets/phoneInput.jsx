@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import './phoneInput.css'
 
-const PhoneInput = memo(function Phoneinput({setNum}){
+const PhoneInput = memo(function Phoneinput({setNum, phoneToChange}){
 
     const [num2, setNum2] = useState('');
     const [num3, setNum3] = useState('');
@@ -32,6 +32,21 @@ const PhoneInput = memo(function Phoneinput({setNum}){
         setNum(`+8${num2}${num3}${num4}${num5}${num6}${num7}${num8}${num9}${num10}${num11}`)
     })
 
+    useEffect(()=>{
+        if(phoneToChange) {
+            setNum2(phoneToChange[4])
+            setNum3(phoneToChange[5])
+            setNum4(phoneToChange[6])
+            setNum5(phoneToChange[8])
+            setNum6(phoneToChange[9])
+            setNum7(phoneToChange[10])
+            setNum8(phoneToChange[12])
+            setNum9(phoneToChange[13])
+            setNum10(phoneToChange[15])
+            setNum11(phoneToChange[16])
+        }
+    }, [])
+
     return(
         <>
         <div className='PhoneInput_header'>Номер телефона</div>
@@ -39,19 +54,39 @@ const PhoneInput = memo(function Phoneinput({setNum}){
             <div className='PhoneInput_plus'>+8</div>
 
 
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum2)} value={num2} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum3)} value={num3} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} id='spacing' onInput={(ev)=>handleInput(ev,setNum4)} value={num4} onKeyDown={handleKeyDown}></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum2)} value={num2} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum3)} value={num3} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            id='spacing' onInput={(ev)=>handleInput(ev,setNum4)} 
+            value={num4} onKeyDown={handleKeyDown} ></input>
 
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum5)} value={num5} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum6)} value={num6} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} id='spacing' onInput={(ev)=>handleInput(ev,setNum7)} value={num7} onKeyDown={handleKeyDown}></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum5)} value={num5} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum6)} value={num6} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            id='spacing' onInput={(ev)=>handleInput(ev,setNum7)} 
+            value={num7} onKeyDown={handleKeyDown} ></input>
 
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum8)} value={num8} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} id='spacing' onInput={(ev)=>handleInput(ev,setNum9)} value={num9} onKeyDown={handleKeyDown}></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum8)} value={num8} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            id='spacing' onInput={(ev)=>handleInput(ev,setNum9)} 
+            value={num9} onKeyDown={handleKeyDown} ></input>
 
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum10)} value={num10} onKeyDown={handleKeyDown}></input>
-            <input className='PhoneInput_number_input' maxLength={1} onInput={(ev)=>handleInput(ev,setNum11)} value={num11} onKeyDown={handleKeyDown}></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum10)} value={num10} 
+            onKeyDown={handleKeyDown} ></input>
+            <input className='PhoneInput_number_input' maxLength={1} 
+            onInput={(ev)=>handleInput(ev,setNum11)} value={num11} 
+            onKeyDown={handleKeyDown} ></input>
         </div>
         </>
     )
