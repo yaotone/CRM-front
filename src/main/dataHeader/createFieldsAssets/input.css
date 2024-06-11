@@ -1,7 +1,7 @@
 .fieldInput_name{
     font-size: 24px;
     font-weight: 500;
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
 .fieldInput_input{
@@ -10,9 +10,9 @@
     padding-right: 16px;
     height: 32px;
     border: 1.5px solid black;
-    border-radius: 10px;
+    border-radius: 3px;
     outline: none;
-    margin-top: 16px;
+    margin-top: 12px;
     font-size: 20px;
 }
 
@@ -30,7 +30,7 @@
 .fieldInput_header_name{
     font-size: 28px;
     font-weight: 500;
-    color: #425fe4;
+    color: black;
 }
 
 .fieldInput_header_close{
@@ -38,4 +38,9 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
+}
+
+.fieldInput_description{
+    color: gray;
+    margin-top: 4px;
 }

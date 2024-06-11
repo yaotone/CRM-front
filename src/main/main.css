@@ -1,5 +1,6 @@
 .main_container{
     width: 100%;
+    max-width: calc(100dvw - 250px);
     height: 100dvh;
     background-color: #edf2f6;
     display: flex;

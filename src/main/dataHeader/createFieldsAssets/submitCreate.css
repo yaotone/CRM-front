@@ -1,4 +1,6 @@
 .submitCreate_container{
+    outline: 0;
+    border: 0;
     width: 50%;
     height: 40px;
     margin-top: 32px;

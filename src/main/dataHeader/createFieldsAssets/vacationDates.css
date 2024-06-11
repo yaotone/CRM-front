@@ -1,0 +1,86 @@
+.VacationDates_name{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+.VacationDates_container{
+    margin-top: 12px;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.VacationDates_input{
+    border: 1.5px solid black;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+    height: 32px;
+}
+
+#VacationDates_input_untill{
+    text-align: end;
+}
+
+.VacationDates_date{
+    cursor: pointer;
+    width: fit-content;
+    height: 32px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.VacationDates_date:hover{
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.active_day{
+    color: #425fe4;
+    border: 1.5px solid #425fe4;
+}
+
+.VacationDates_time{
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.VacationDates_left{
+    display: flex;
+    align-items: center;
+}
+
+.VacationDates_right{
+    display: flex;
+    align-items: center;
+}
+
+.VacationDates_left div{
+    margin-right: 8px;
+    font-size: 20px;
+}
+.VacationDates_right div{
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.VacationDates_left input{
+    height: 32px;
+    padding-left: 10px;
+}
+.VacationDates_right input{
+    height: 32px;
+    padding-left: 10px;
+}

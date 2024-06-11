@@ -1,0 +1,17 @@
+.EmailMain_input{
+    width: calc(100%-32px);
+    padding: 16px;
+    height: 200px;
+    border: 1.5px solid black;
+    border-radius: 3px;
+    outline: none;
+    margin-top: 12px;
+    font-size: 20px;
+    resize: none;
+    transition: 0.3s;
+}
+
+.EmailMain_input:focus{
+    border: 1.5px solid #1b3cdf;
+    transition: 0.3s;
+}

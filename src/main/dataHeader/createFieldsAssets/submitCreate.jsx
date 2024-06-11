@@ -2,6 +2,6 @@ import './submitCreate.css'
 
 export default function SubmitCreate({onClick, text}){
     return(
-        <div className='submitCreate_container' onClick={onClick}>{text}</div>
+        <input className='submitCreate_container' onClick={onClick} type='submit' value={text}></input>
     )
 }

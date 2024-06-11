@@ -39,11 +39,10 @@
 .popup_menu{
     position: absolute;
     width: 120px;
-    height: 60px;
+    height: fit-content;
     /* background-color: rgb(233, 247, 255); */
     background-color: #ebeeff;
-    top: 0px;
-    top: -50px;
+    bottom: -40px;
     right: 0px;
     z-index: 100;
     border-radius: 8px;

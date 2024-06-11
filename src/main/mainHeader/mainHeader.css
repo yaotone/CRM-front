@@ -12,6 +12,13 @@
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.095);
 }
 
+.contact_info{
+    margin-right: auto;
+    margin-left: 10px;
+    font-size: 20x;
+    font-weight: 400;
+}
+
 .header_admin_img{
     width: 40px;
     height: 40px;

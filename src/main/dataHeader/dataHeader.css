@@ -71,7 +71,7 @@
     outline: 1px solid #d1d8e2;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius:8px;
+    border-radius:3px;
 }
 
 .dataHeader_search_input::placeholder{
@@ -90,7 +90,7 @@
     align-items: center;
     cursor: pointer;
     transform: scale(100%);
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 3px 3px 0;
 }
 
 .dataHeader_search_button:hover{
@@ -98,27 +98,11 @@
     transition: 0.3s;
 }
 
-/* .dataHeader_create_button{
-    width: 160px;
-    height: 34px;
-    margin-left: auto;
-    margin-right: 0px;
-    background-color: #4c89f3c8;
-    font-size: 20px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 20px;
-} */
 .dataHeader_create_button{
     width: fit-content;
     height: 34px;
-    margin-left: auto;
+    margin-left: 24px;
     margin-right: 0px;
-    /* background-color: #4c89f3c8; */
     background-color: #425fe4;
     display: flex;
     align-items: center;
@@ -126,9 +110,42 @@
     padding-right: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 8px;
+    border-radius: 3px;
     font-size: 19px;
     font-weight: 400;
+}
+
+.dataHeader_create_button_solo{
+    width: fit-content;
+    height: 34px;
+    margin-left: auto;
+    margin-right: 0px;
+    background-color: #425fe4;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 3px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.dataHeader_create_button_solo:hover{
+    background-color: #1b3cdf;
+    transition: 0.3s;
+}
+
+.dataHeader_create_button_solo img{
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+.dataHeader_create_button_solo div{
+    margin-bottom: 2px;
+    color: white;
 }
 
 .dataHeader_create_button img{
@@ -142,8 +159,42 @@
     color: white;
 }
 
+.email_newsletter_button{
+    width: fit-content;
+    height: 34px;
+    margin-left: auto;
+    margin-right: 0px;
+    /* background-color: #4c89f3c8; */
+    background-color: #425fe4;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 3px;
+    font-size: 19px;
+    font-weight: 400;
+    color: white;
+}
+
+.email_newsletter_button img{
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
+}
+
+.email_newsletter_button div{
+    margin-bottom: 2px;
+    color: white;
+}
+
+.email_newsletter_button:hover{
+        background-color: #1b3cdf;
+        transition: 0.3s;
+}
+
 .dataHeader_create_button:hover{
-    /* background-color: #4c89f3; */
     background-color: #1b3cdf;
     transition: 0.3s;
 }
@@ -158,6 +209,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 .hide{
@@ -170,4 +222,21 @@
     height: fit-content;
     border-radius: 15px;
     background-color:#f4f4f4;
+}
+
+.uuid{
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.uuid_description{
+    margin-top: 4px;
+    color: gray;
+}
+
+.uuid_header{
+    margin-top: 16px;
+    font-size: 26px;
+    font-weight: 500;
 }

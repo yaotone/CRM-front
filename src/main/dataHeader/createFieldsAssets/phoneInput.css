@@ -1,13 +1,13 @@
 .PhoneInput_header{
     font-size: 24px;
     font-weight: 500;
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
 .PhoneInput_container{
     width: 100%;
     height: fit-content;
-    margin-top: 16px;
+    margin-top: 12px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -22,7 +22,7 @@
     text-align: center;
     width: 28px;
     height: 28px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: none;
     padding: 5px;
     outline: 1px solid black;

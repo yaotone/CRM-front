@@ -4,7 +4,7 @@ import MainHeader from './mainHeader/mainHeader'
 export default function Main({children}){
     return(
         <div className='main_container'>
-            <MainHeader adminName = {'yaotone'}></MainHeader>
+            <MainHeader ></MainHeader>
             {children}
         </div>
     )

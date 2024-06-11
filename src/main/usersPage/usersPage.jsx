@@ -3,40 +3,108 @@ import { useEffect, useState } from 'react'
 import './usersPage.css'
 import TableHead from '../table/tableHead';
 import TableMain from '../table/tableMain';
+import { useDebounce } from "@uidotdev/usehooks";
+
+import axios from 'axios'
+
+import {
+    useQuery,
+    useQueryClient,
+} from 'react-query';
+
+
+axios.defaults.baseURL = 'http://0.0.0.0:9999'
 
 export default function UsersPage({activeButton}){
-    console.log(activeButton)
 
-    const [info] = useState([
-        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '+ 8 123 456 78 90', gender: 'M', birth: '2003-02-12'},
-        {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
-        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '18928989191', gender: 'M', birth: '12-02-2003'},
-        {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
-        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '18928989191', gender: 'M', birth: '12-02-2003'},
-        {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
-        {name: 'deed', surname: 'wweww', thirdname: 'yyyee', created_at: '12-23-12', phone: '18928989191', gender: 'M', birth: '12-02-2003'},
-        {name: 'hhai', surname: 'mnckls', thirdname: 'wefdjoewnk', created_at: '21-04-23', phone: '210399000', gender: 'Ж', birth: '02-03-2001'},
-    ]
-    );
+
+    const queryClient = useQueryClient();  
+    
+    const[clientId, setClientId] = useState('')
+    const[doctorId, setDoctorId] = useState('')
+    const [searchQuery, setSearchQuery] = useState('')
+    let debouncedSearch = useDebounce(searchQuery, 500)
+    
+    const {data: clients, status: clientsStatus, error: clientsError} = useQuery('clients', async ()=>(await axios.get('/clients')).data)
+    const {data: doctors, status: doctorsStatus, error: doctorsError} = useQuery('doctors', async ()=>(await axios.get('/doctors')).data)
+    const {data: appointments, status: appointmentsStatus, error: appointmentsError} = useQuery('appointments', async ()=>(await axios.get('/appointments')).data)
+    const {data: users, status: usersStatus, error: usersError} = useQuery('users', async ()=>(await axios.get('/users')).data)
+
+    const {data: clientsSearch, status:clientsSearchStatus} = useQuery(['clientsSearch', debouncedSearch], async()=>(await axios.get(`/clients/search/${debouncedSearch}`)).data)
+    const {data: doctorsSearch, status:doctorsSearchStatus} = useQuery(['doctorsSearch', debouncedSearch], async()=>(await axios.get(`/doctors/search/${debouncedSearch}`)).data)
 
     const tables = [
         <>
-            <TableHead columns={['id', 'Имя', 'Фамилия', 
-                        'Отчество', 'Время создания', 'Номер телефона', 'Пол', 'Дата рождения']}></TableHead>
+            {(searchQuery === '') ? 
+            <>
+                <TableHead hasIds={true} columns={['Имя', 'Дата рождения', 'Почта', 'Номер телефона', 'Дата создания']}></TableHead>
+                <tbody>
+                    {clientsStatus === 'success' ?
+                    clients?.map((item, index)=>{
+                        return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                        notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                    }):<div>Error!</div>
+                }
+                </tbody>
+            </>:
+            <>
+            <TableHead hasIds={true} columns={['Имя', 'Дата рождения']}></TableHead>
+                <tbody>
+                    {clientsSearchStatus === 'success' ?
+                    clientsSearch?.map((item, index)=>{
+                        return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                        notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                    }):<div>{clientsSearchStatus}</div>
+                }
+                </tbody>
+            </>
+            }
+        </>,
+        <>
+            {(searchQuery === '')?
+            <>
+                <TableHead hasIds={true} columns={['Имя', 'Специальность', 'Телефон', 'Статус']}></TableHead>
+                <tbody>
+                    {doctorsStatus === 'success' ?
+                    doctors?.map((item, index)=>{
+                        return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                        notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                    }
+                    ): <div>Error!</div>}
+                </tbody>
+            </>:
+            <>
+                <TableHead hasIds={true} columns={['Имя']}></TableHead>
+                <tbody>
+                    {doctorsSearchStatus === 'success' ?
+                    doctorsSearch?.map((item, index)=>{
+                        return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                        notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                    }
+                    ): <div>{doctorsSearchStatus}</div>}
+                </tbody>
+            </>
+            }
+        </>
+        ,
+        <>
+            <TableHead hasIds={true} columns={['Клиент', 'Дата рождения', 'Телефон','','', 'Доктор', 'Телефон', 'Дата приема', 'Время приема']}></TableHead>
             <tbody>
-                {info.map((item, index)=>{
-                    return <TableMain infoRow={item} indexes={[0,4]} 
-                    notChangeable={[0,4]} colors={['gray','gray']} rowIndex={index} activeButton={activeButton}></TableMain>
-                })}
+                {appointmentsStatus === 'success' ?
+                appointments?.map((item, index)=>{
+                    return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                    notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                }):
+                <div>Error!</div>
+            }
             </tbody>
         </>,
         <>
-            <TableHead columns={['id', 'Имя', 'Фамилия', 
-                        'Отчество', 'Специальность', 'Отпуск']}></TableHead>
+            <TableHead hasIds={true} columns={['Логин', 'Имя', 'Фамилия', 'Роль']}></TableHead>
             <tbody>
-                {info.map((item, index)=>{
-                    return <TableMain infoRow={item} indexes={[0,4]} 
-                    notChangeable={[0,4]} colors={['gray','gray']} rowIndex={index} activeButton={activeButton}></TableMain>
+                {users?.map((item, index)=>{
+                    return <TableMain infoRow={item} indexes={[0]} setClientId={setClientId} setDoctorId={setDoctorId}
+                    notChangeable={[0]} colors={['gray']} rowIndex={index} activeButton={activeButton}></TableMain>
                 })}
             </tbody>
         </>
@@ -47,13 +115,12 @@ export default function UsersPage({activeButton}){
     }, [activeButton])
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [searchQuery, setSearchQuery] = useState('')
 
     return(
         <div className='usersPage' >
             <DataHeader page={currentPage} setPage={setCurrentPage}
             searchQuery={searchQuery} setSearchQuery={setSearchQuery}
-            activeButton={activeButton}></DataHeader>
+            activeButton={activeButton} client_uuid={clientId} doctor_uuid={doctorId} setClient_uuid={setClientId} setDoctor_uuid={setDoctorId}></DataHeader>
             <div className='usersPage_main'>
                 <table className='data_table_container'>
                     {tables[activeButton-1]}

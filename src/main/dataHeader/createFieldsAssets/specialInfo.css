@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
 .specialInfo_gender_header{
@@ -31,9 +31,9 @@
     outline: 0px;
     border: 0px;
     border: 1px solid black;
-    margin-top: 16px;
-    height: 24px;
-    border-radius: 10px;
+    margin-top: 12px;
+    height: 32px;
+    border-radius: 3px;
     cursor: pointer;
     padding-left: 10px;
 }
@@ -43,15 +43,16 @@
     width: 98px;
     border: 1px solid black;
     margin-top: 16px;
-    height: 24px;
-    border-radius: 10px;
+    height: 32px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .gender_dropdown_choosed{
-    margin-left: 43px;
+    margin-left: 41px;
 }
 
 .gender_dropdown_icon{
@@ -78,11 +79,11 @@
     align-items: center;
     justify-content: center;
     height: 24px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
 .choose_gender:hover{
-    background-color: rgba(0, 0, 0, 0.14);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
 }

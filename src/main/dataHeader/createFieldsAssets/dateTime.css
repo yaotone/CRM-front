@@ -1,0 +1,19 @@
+.dateTime_header{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+.dateTime_container{
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dateTime_input{
+    border: 1px solid black;
+    height: 32px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding-left: 10px;
+}

@@ -29,21 +29,21 @@ const PhoneInput = memo(function Phoneinput({setNum, phoneToChange}){
     }
 
     useEffect(()=>{
-        setNum(`+8${num2}${num3}${num4}${num5}${num6}${num7}${num8}${num9}${num10}${num11}`)
+        setNum(`+7${num2}${num3}${num4}${num5}${num6}${num7}${num8}${num9}${num10}${num11}`)
     })
 
     useEffect(()=>{
         if(phoneToChange) {
-            setNum2(phoneToChange[4])
-            setNum3(phoneToChange[5])
-            setNum4(phoneToChange[6])
-            setNum5(phoneToChange[8])
-            setNum6(phoneToChange[9])
-            setNum7(phoneToChange[10])
-            setNum8(phoneToChange[12])
-            setNum9(phoneToChange[13])
-            setNum10(phoneToChange[15])
-            setNum11(phoneToChange[16])
+            setNum2(phoneToChange[3])
+            setNum3(phoneToChange[4])
+            setNum4(phoneToChange[5])
+            setNum5(phoneToChange[7])
+            setNum6(phoneToChange[8])
+            setNum7(phoneToChange[9])
+            setNum8(phoneToChange[11])
+            setNum9(phoneToChange[12])
+            setNum10(phoneToChange[14])
+            setNum11(phoneToChange[15])
         }
     }, [])
 
@@ -51,7 +51,7 @@ const PhoneInput = memo(function Phoneinput({setNum, phoneToChange}){
         <>
         <div className='PhoneInput_header'>Номер телефона</div>
         <div className='PhoneInput_container'>
-            <div className='PhoneInput_plus'>+8</div>
+            <div className='PhoneInput_plus'>+7</div>
 
 
             <input className='PhoneInput_number_input' maxLength={1} 
